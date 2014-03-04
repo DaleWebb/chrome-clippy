@@ -1,6 +1,8 @@
 {
   "name": "chrome-clippy",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "jquery": "~2.1.0"
+  },
   "devDependencies": {}
 }
