@@ -160,11 +160,16 @@ clippy.Agent.prototype = {
             this._onQueueEmpty();
             return;
         }
-
+            
         if (this._el.css('top') === 'auto' || !this._el.css('left') === 'auto') {
-            var left = $(window).width() * 0.8;
-            var top = ($(window).height() + $(document).scrollTop()) * 0.8;
-            this._el.css({top:top, left:left});
+            var bH = this._el.outerHeight();
+            var bW = this._el.outerWidth();
+            var wW = $(window).width();
+            var wH = $(window).height();
+            var sT = $(window).scrollTop();
+            var sL = $(window).scrollLeft();
+
+            this._el.css({left:wW / 2 - bW / 2, top:wH / 2 - bH / 2});
         }
 
         this.resume();
@@ -359,22 +364,7 @@ clippy.Agent.prototype = {
         var sT = $(window).scrollTop();
         var sL = $(window).scrollLeft();
 
-        var top = o.top - sT;
-        var left = o.left - sL;
-        var m = 5;
-        if (top - m < 0) {
-            top = m;
-        } else if ((top + bH + m) > wH) {
-            top = wH - bH - m;
-        }
-
-        if (left - m < 0) {
-            left = m;
-        } else if (left + bW + m > wW) {
-            left = wW - bW - m;
-        }
-
-        this._el.css({left:left, top:top});
+        this._el.css({left:wW / 2 - bW / 2, top:wH / 2 - bH / 2});
         // reposition balloon
         this._balloon.reposition();
     },
@@ -420,10 +410,10 @@ clippy.Agent.prototype = {
 
     _dragMove:function (e) {
         e.preventDefault();
-        var x = e.clientX - this._offset.left;
-        var y = e.clientY - this._offset.top;
-        this._taregtX = x;
-        this._targetY = y;
+        //var x = e.clientX - this._offset.left;
+        //var y = e.clientY - this._offset.top;
+        //this._taregtX = x;
+        //this._targetY = y;
     },
 
     _finishDrag:function () {
