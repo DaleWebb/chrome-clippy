@@ -1,4 +1,4 @@
-clippy.load('Merlin', function(agent){
+clippy.load('Clippy', function(agent){
 	// do anything with the loaded agent
 	agent.show();
 });

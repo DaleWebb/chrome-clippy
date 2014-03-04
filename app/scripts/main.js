@@ -7,6 +7,9 @@ chrome.app.runtime.onLaunched.addListener(function() {
 
     chrome.app.window.create('index.html', {
         id: 'main',
+        transparentBackground: true,
+        frame: 'none',
+        type: 'panel',
         bounds: {
             width: width,
             height: height,

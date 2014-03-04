@@ -5,6 +5,7 @@
   	"manifest_version": 2,
   	"default_locale": "en",
   	"permissions": [
+  		"experimental"
   	],
   	"icons": {
   		"16": "images/icon-16.png",
